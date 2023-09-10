@@ -11,9 +11,9 @@
 
     <!-- Login Form -->
     <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario">
-      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+      <input type="text" name="registro_academico" id="inputregistro_academico" #registro_academico="ngModel" [(ngModel)]="usuarioModel.registro_academico" class="fadeIn second" placeholder="Registro Academico">
+      <input type="password" id="inputContrasena" class="fadeIn third" name="contrasena" #contrasena="ngModel" [(ngModel)]="usuarioModel.contrasena" placeholder="Contraseña">
+      <input type="submit" class="fadeIn fourth" value="Log In" (click)="login()">
     </form>
 
     <!-- Remind Passowrd -->

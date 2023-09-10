@@ -47,6 +47,12 @@ app.get("/usuario/obtenerUsuarioId/:id",async(req,res)=>{
     return res.status(200).send(usuarioEncontrado)
 })
 
+app.put("/usuario/login",async(req,res)=>{
+    var params = req.body
+    var usuarioLogeado = await Usuario.findOne({registro_academico: params.registro_academico, contrasena: params.contrasena});
+    return res.status(200).send(usuarioLogeado)
+})
+
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/taller4',{
