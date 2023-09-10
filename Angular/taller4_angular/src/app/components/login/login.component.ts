@@ -30,6 +30,11 @@ export class LoginComponent implements OnInit {
         this.identidad = response
         if (this.identidad != null){
           localStorage.setItem('identidad',JSON.stringify(this.identidad))
+          Swal.fire(
+            'Bienvenido',
+            'Bienvenido!',
+            'success'
+          )
           this._router.navigate(['/mainPage'])
         }else{
           Swal.fire(
