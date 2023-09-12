@@ -8,13 +8,15 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar/navbar.component';
+import { RegistrarseComponent } from './components/registrarse/registrarse.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    RegistrarseComponent
   ],
   imports: [
     BrowserModule,
