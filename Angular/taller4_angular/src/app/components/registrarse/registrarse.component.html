@@ -1,2 +1,87 @@
-<p>registrarse works!</p>
-<button (click)="login()" class="btn btn-primary">Regresar a Login</button>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Estilo para centrar el formulario */
+        .center-form {
+            position: absolute;
+            top: 100px; /* Posición vertical en píxeles desde la parte superior */
+            left: 640px; /* Posición horizontal en píxeles desde la izquierda */
+            background-color: #007bff; /* Cambia el color de fondo del botón primario */
+            color: #fff; /* Cambia el color del texto del botón primario */
+            padding: 20px 20px; /* Añade un poco de espacio alrededor del botón */
+        }
+        
+        /* Estilo para los botones con colores */
+        .btn-primary {
+            background-color: #007bff; /* Cambia el color de fondo del botón primario */
+            color: #fff; /* Cambia el color del texto del botón primario */
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3; /* Cambia el color de fondo del botón primario al pasar el mouse */
+        }
+
+        .custom-button {
+            position: absolute;
+            font-size: 24px; /* Tamaño de fuente personalizado */
+            top: 20px; /* Posición vertical en píxeles desde la parte superior */
+            left: 40px; /* Posición horizontal en píxeles desde la izquierda */
+            background-color: #007bff; /* Cambia el color de fondo del botón primario */
+            color: #fff; /* Cambia el color del texto del botón primario */
+            padding: 10px 20px; /* Añade un poco de espacio alrededor del botón */
+        }
+        .botonRegistrar{
+            font-size: 44px; /* Tamaño de fuente personalizado */
+            position: absolute;
+            top: 399px; /* Posición vertical en píxeles desde la parte superior */
+            left: 65px; /* Posición horizontal en píxeles desde la izquierda *65
+            background-color: #007bff; /* Cambia el color de fondo del botón primario */
+            color: #fff; /* Cambia el color del texto del botón primario */
+            padding: 10px 15px; /* Añade un poco de espacio alrededor del botón */
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="custom-button">   
+    <button (click)="login()" class="btn btn-primary animate__animated animate__fadeIn">Regresar a Login</button>
+    </div> 
+
+    <div class="center-form">
+        <form class="animate__animated animate__zoomIn">
+            <div class="form-group col-md-100">
+                <label for="inputEmail4">Registro Académico</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Registro Académico" data-mdb-animation="fadeIn" data-mdb-animation-delay="13s">
+            </div>
+            <div class="form-group col-md-100">
+                <label for="inputEmail4">Nombre(s)</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Nombre(s)" data-mdb-animation="fadeIn" data-mdb-animation-delay="1s">
+            </div>
+            <div class="form-group col-md-100">
+                <label for="inputEmail4">Apellido(s)</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Apellido(s)" data-mdb-animation="fadeIn" data-mdb-animation-delay="1s">
+            </div>
+            <div class="form-group col-md-100">
+                <label for="inputEmail4">Correo Electronico</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Correo Electronico" data-mdb-animation="fadeIn" data-mdb-animation-delay="1s">
+            </div>
+            <div class="form-group col-md-100">
+                <label for="inputPassword4">Contraseña</label>
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Contraseña" data-mdb-animation="fadeIn" data-mdb-animation-delay="5s">
+            </div>
+            
+        </form>
+
+        <div class="botonRegistrar">   
+            <button class="btn btn-primary animate__animated animate__fadeIn">Registrarse</button>
+            </div> 
+           
+    </div>
+</body>
+</html>

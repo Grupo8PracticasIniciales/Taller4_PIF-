@@ -22,6 +22,7 @@ export class UsuarioService {
     return this._http.put(this.url+'/usuario/login',params,{headers: this.headersVariable})
   }
 
+
   getIdentidad(){
     var identidad2 = JSON.parse(localStorage.getItem('identidad') || '{}');
     if(identidad2 != 'undefined'){
