@@ -50,36 +50,36 @@
 <body>
 
     <div class="custom-button">   
-    <button (click)="login()" class="btn btn-primary animate__animated animate__fadeIn">Regresar a Login</button>
+    <button (click)="regresar()" class="btn btn-primary animate__animated animate__fadeIn">Regresar a Login</button>
     </div> 
 
     <div class="center-form">
         <form class="animate__animated animate__zoomIn">
             <div class="form-group col-md-100">
                 <label for="inputEmail4">Registro Académico</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Registro Académico" data-mdb-animation="fadeIn" data-mdb-animation-delay="13s">
+                <input name="registo_academico" #registro_academico="ngModel" [(ngModel)]="usuarioNuevo.registro_academico" type="email" class="form-control" id="inputEmail4" placeholder="Registro Académico" data-mdb-animation="fadeIn" data-mdb-animation-delay="13s">
             </div>
             <div class="form-group col-md-100">
                 <label for="inputEmail4">Nombre(s)</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Nombre(s)" data-mdb-animation="fadeIn" data-mdb-animation-delay="1s">
+                <input name="nombre" #nombre="ngModel" [(ngModel)]="usuarioNuevo.nombre" type="email" class="form-control" id="inputEmail4" placeholder="Nombre(s)" data-mdb-animation="fadeIn" data-mdb-animation-delay="1s">
             </div>
             <div class="form-group col-md-100">
                 <label for="inputEmail4">Apellido(s)</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Apellido(s)" data-mdb-animation="fadeIn" data-mdb-animation-delay="1s">
+                <input name="apellido" #apellido="ngModel" [(ngModel)]="usuarioNuevo.apellido" type="email" class="form-control" id="inputEmail4" placeholder="Apellido(s)" data-mdb-animation="fadeIn" data-mdb-animation-delay="1s">
             </div>
             <div class="form-group col-md-100">
                 <label for="inputEmail4">Correo Electronico</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Correo Electronico" data-mdb-animation="fadeIn" data-mdb-animation-delay="1s">
+                <input name="correo" #correo="ngModel" [(ngModel)]="usuarioNuevo.correo" type="email" class="form-control" id="inputEmail4" placeholder="Correo Electronico" data-mdb-animation="fadeIn" data-mdb-animation-delay="1s">
             </div>
             <div class="form-group col-md-100">
                 <label for="inputPassword4">Contraseña</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Contraseña" data-mdb-animation="fadeIn" data-mdb-animation-delay="5s">
+                <input name="contrasena" #contrasena="ngModel" [(ngModel)]="usuarioNuevo.contrasena" type="password" class="form-control" id="inputPassword4" placeholder="Contraseña" data-mdb-animation="fadeIn" data-mdb-animation-delay="5s">
             </div>
             
         </form>
 
         <div class="botonRegistrar">   
-            <button class="btn btn-primary animate__animated animate__fadeIn">Registrarse</button>
+            <button (click)="registrar()" class="btn btn-primary animate__animated animate__fadeIn">Registrarse</button>
             </div> 
            
     </div>

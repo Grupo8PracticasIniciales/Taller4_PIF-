@@ -22,6 +22,9 @@ export class UsuarioService {
     return this._http.put(this.url+'/usuario/login',params,{headers: this.headersVariable})
   }
 
+  registrarUsuario(usuario: Usuario): Observable<any>{
+    let params = JSON.stringify(usuario)
+    return this._http.post(this.url+'/usuario/crearUsuario', params, {headers: this.headersVariable}) }
 
   getIdentidad(){
     var identidad2 = JSON.parse(localStorage.getItem('identidad') || '{}');
