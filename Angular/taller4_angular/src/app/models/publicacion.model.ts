@@ -1,10 +1,10 @@
 export class Publicacion{
   constructor(
-    autor: String,
-    curso: String,
-    catedratico: String,
-    mensaje: String,
-    fecha: Date,
-    comentarios: []
+    public autor_nombre: String,
+    public autor_apellido: String,
+    public curso: String,
+    public catedratico: String,
+    public mensaje: String,
+    public comentarios: []
   ){}
 }

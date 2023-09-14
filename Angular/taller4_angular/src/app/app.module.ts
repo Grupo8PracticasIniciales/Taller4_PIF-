@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar/navbar.component';
 import { RegistrarseComponent } from './components/registrarse/registrarse.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { RegistrarseComponent } from './components/registrarse/registrarse.compo
     LoginComponent,
     MainPageComponent,
     NavbarComponent,
-    RegistrarseComponent
+    RegistrarseComponent,
+    MyProfileComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

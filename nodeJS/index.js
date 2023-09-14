@@ -53,6 +53,32 @@ app.put("/usuario/login",async(req,res)=>{
     return res.status(200).send(usuarioLogeado)
 })
 
+app.post('/usuario/comprobarUsuario',async(req,res)=>{
+    var params = req.body
+    var usuarioComprobado = await Usuario.findOne({registro_academico: params.registro_academico, correo: params.correo});
+    return res.status(200).send(usuarioComprobado)
+})
+
+app.get('/publicacion/obtenerPublicaciones',async(req,res)=>{
+    var publicacionesEncontradas = await Publicacion.find().sort({fecha: -1})
+    return res.status(200).json(publicacionesEncontradas)
+})
+
+app.post("/publicacion/crearPublicacion",async(req,res)=>{
+
+    var nuevaPublicacion = new Publicacion({...req.body});
+    nuevaPublicacion.fecha = new Date()
+    var publicacionInsertada = await nuevaPublicacion.save();
+    return res.status(201).json(publicacionInsertada);
+})
+
+app.delete("/publicacion/eliminarPublicacion/:id",async(req,res)=>{
+
+    var {id} = req.params
+    var publicacionEliminada = await Publicacion.findByIdAndDelete(id);
+    return res.status(200).send(publicacionEliminada)
+})
+
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/taller4',{

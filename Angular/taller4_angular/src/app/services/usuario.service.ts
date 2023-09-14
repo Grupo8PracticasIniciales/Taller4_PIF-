@@ -26,6 +26,20 @@ export class UsuarioService {
     let params = JSON.stringify(usuario)
     return this._http.post(this.url+'/usuario/crearUsuario', params, {headers: this.headersVariable}) }
 
+  comprobarUsuario(usuario: Usuario): Observable<any>{
+    let params = JSON.stringify(usuario);
+    return this._http.post(this.url+'/usuario/comprobarUsuario',params,{headers:this.headersVariable})
+  }
+
+  editarUsuario(id: String,usuario: Usuario):Observable<any>{
+    let params = JSON.stringify(usuario);
+    return this._http.put(this.url+'/usuario/editarUsuario/'+id,params,{headers: this.headersVariable});
+  }
+
+  obtenerUsuarios():Observable<any>{
+    return this._http.get(this.url+'/usuario/obtenerUsuarios',{headers: this.headersVariable})
+  }
+
   getIdentidad(){
     var identidad2 = JSON.parse(localStorage.getItem('identidad') || '{}');
     if(identidad2 != 'undefined'){

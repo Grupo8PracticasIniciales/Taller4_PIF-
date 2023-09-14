@@ -26,7 +26,6 @@ export class RegistrarseComponent {
   registrar(){
     this._usuarioService.registrarUsuario(this.usuarioNuevo).subscribe(
       response=>{
-        console.log(response)
         Swal.fire(
           'Usuario registrado con exito',
           'success'

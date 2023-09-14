@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 var publicacionesSchema = Schema({
-    autor: String,
+    autor_nombre: String,
+    autor_apellido: String,
     curso: String,
     catedratico: String,
     mensaje: String,

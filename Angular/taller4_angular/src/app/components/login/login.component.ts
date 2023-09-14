@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
     this._usuarioService.login(this.usuarioModel).subscribe(
       response=>{
         this.identidad = response
-        console.log(response)
         if (this.identidad != null){
           localStorage.setItem('identidad',JSON.stringify(this.identidad))
           Swal.fire(
