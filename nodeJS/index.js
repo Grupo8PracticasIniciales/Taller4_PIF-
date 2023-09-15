@@ -44,7 +44,7 @@ app.get("/usuario/obtenerUsuarioId/:id",async(req,res)=>{
     var {id} = req.params;
 
     var usuarioEncontrado = await Usuario.findById(id);
-    return res.status(200).send(usuarioEncontrado)
+    return res.status(200).json(usuarioEncontrado)
 })
 
 app.put("/usuario/login",async(req,res)=>{
