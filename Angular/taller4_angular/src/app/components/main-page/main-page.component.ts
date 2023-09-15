@@ -15,14 +15,19 @@ export class MainPageComponent implements OnInit{
   public todosLosUsuarios: any
   public todasLasPublicaciones: any
   public publicacionNueva: Publicacion
+  public datoBuscado: Publicacion;
+  public publicacionMarcador: number = 1
+  public publicacionCurso: any
+  public publicacionCatedratico: any
 
   constructor(private _usuarioService: UsuarioService, private _publicacionService: PublicacionService){
     this.publicacionNueva = new Publicacion("","","","","",[])
+    this.datoBuscado = new Publicacion("","","","","",[])
+    this.publicacionMarcador = 1
   }
   ngOnInit(): void {
     this.obtenerUsuarios()
     this.obtenerPublicaciones()
-
   }
 
   obtenerUsuarios(){
@@ -37,6 +42,7 @@ export class MainPageComponent implements OnInit{
   }
 
   obtenerPublicaciones(){
+
     this._publicacionService.obtenerPublicaciones().subscribe(
       response=>{
         this.todasLasPublicaciones = response
@@ -47,9 +53,40 @@ export class MainPageComponent implements OnInit{
     )
   }
 
+  obtenerPublicacionesCurso(){
+
+    this._publicacionService.obtenerPublicacionCurso(this.datoBuscado).subscribe(
+      response=>{
+        this.publicacionCurso = response
+      },
+      error=>{
+        console.log(<any>error);
+      }
+    )
+  }
+
+  obtenerPublicacionesCatedratico(){
+
+    this._publicacionService.obtenerPublicacionCatedratico(this.datoBuscado).subscribe(
+      response=>{
+        this.publicacionCatedratico = response
+      },
+      error=>{
+        console.log(<any>error);
+      }
+    )
+  }
+
   agregarDatosUsuario(){
     this.publicacionNueva.autor_nombre = this._usuarioService.getIdentidad().nombre
     this.publicacionNueva.autor_apellido = this._usuarioService.getIdentidad().apellido
+  }
+
+  cambiarpublicacionMarcador(numero: number){
+    this.publicacionMarcador = numero
+    this.obtenerPublicaciones()
+    this.obtenerPublicacionesCatedratico()
+    this.obtenerPublicacionesCurso()
   }
 
   crearPublicacion(){

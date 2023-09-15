@@ -26,4 +26,14 @@ export class PublicacionService {
     return this._http.post(this.url+'/publicacion/crearPublicacion',params,{headers: this.headersVariable})
   }
 
+  obtenerPublicacionCurso(curso: Publicacion): Observable<any>{
+    let params = JSON.stringify(curso)
+    return this._http.post(this.url+'/publicacion/obtenerPublicacionesCurso',params,{headers: this.headersVariable});
+  }
+
+  obtenerPublicacionCatedratico(curso: Publicacion): Observable<any>{
+    let params = JSON.stringify(curso)
+    return this._http.post(this.url+'/publicacion/obtenerPublicacionesCatedratico',params,{headers: this.headersVariable});
+  }
+
 }

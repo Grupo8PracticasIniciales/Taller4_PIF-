@@ -79,6 +79,18 @@ app.delete("/publicacion/eliminarPublicacion/:id",async(req,res)=>{
     return res.status(200).send(publicacionEliminada)
 })
 
+app.post('/publicacion/obtenerPublicacionesCurso',async(req,res)=>{
+    var cursoSeleccionado = req.body.catedratico
+    var publicacionesEncontradas = await Publicacion.find({curso: cursoSeleccionado})
+    return res.status(200).json(publicacionesEncontradas)
+})
+
+app.post('/publicacion/obtenerPublicacionesCatedratico',async(req,res)=>{
+    var catedraticoSeleccionado = req.body.catedratico
+    var publicacionesEncontradas = await Publicacion.find({catedratico: catedraticoSeleccionado})
+    return res.status(200).json(publicacionesEncontradas)
+})
+
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/taller4',{

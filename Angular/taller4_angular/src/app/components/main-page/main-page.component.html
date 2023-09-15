@@ -1,4 +1,32 @@
-<app-navbar></app-navbar>
+<div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand">USAC</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a (click)="cambiarpublicacionMarcador(1)" class="nav-link" >Principal</a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['/myProfile']" class="nav-link">Mi perfil</a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['/login']" class="nav-link">Cerrar Sesion</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" name="dato" #dato="ngModel" [(ngModel)]="datoBuscado.catedratico" placeholder="Search" aria-label="Search">
+          <button (click)="cambiarpublicacionMarcador(2)" class="btn btn-outline-primary" type="submit">Buscar curso</button>
+          <button (click)="cambiarpublicacionMarcador(3)" class="btn btn-outline-primary" style="margin-right: 2px; margin-left: 5px;" type="submit">Buscar catedrático</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</div>
+
 
 <div class="container">
   <div class="profile-page tx-13" style="margin-top: 1rem;">
@@ -16,96 +44,271 @@
             style="height: 70px;margin-bottom:10px;" placeholder="Escribe tu mensaje..."></textarea>
           <input class="form-control" name="mensaje" #mensaje="ngModel" [(ngModel)]="publicacionNueva.catedratico"
             placeholder="Catedratico" style="margin-bottom: 1rem">
-          <input class="form-control" name="curso" #curso="ngModel" [(ngModel)]="publicacionNueva.curso" placeholder="Curso" style="margin-bottom: 1rem;">
+          <input class="form-control" name="curso" #curso="ngModel" [(ngModel)]="publicacionNueva.curso"
+            placeholder="Curso" style="margin-bottom: 1rem;">
           <div class="row">
             <div class="col-sm-6 text-right">
-              <button (click)="crearPublicacion()" type="submit" class="btn btn-primary" style="margin-bottom: 1rem">Publicar</button>
+              <button (click)="crearPublicacion()" type="submit" class="btn btn-primary"
+                style="margin-bottom: 1rem">Publicar</button>
             </div>
           </div>
         </form>
         <!--El siguiente div es el que se tiene que usar para el ngFor-->
-        <div *ngFor="let publi of todasLasPublicaciones" style="margin-bottom: 1rem;" class="row">
-          <div class="col-md-12">
-            <div class="card rounded">
-              <div class="card-header">
-                <div class="d-flex align-items-center justify-content-between">
-                  <div class="d-flex align-items-center">
-                    <img class="img-xs rounded-circle" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
-                      alt="">
-                    <div class="ml-2">
-                      <p>{{publi.autor_nombre}} {{publi.autor_apellido}}</p>
-                      <p class="tx-11 text-muted">publicado en {{publi.fecha}}</p>
+        <div *ngIf="publicacionMarcador == 1">
+          <div *ngFor="let publi of todasLasPublicaciones" style="margin-bottom: 1rem;" class="row">
+            <div class="col-md-12">
+              <div class="card rounded">
+                <div class="card-header">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <img class="img-xs rounded-circle" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
+                        alt="">
+                      <div class="ml-2">
+                        <p>{{publi.autor_nombre}} {{publi.autor_apellido}}</p>
+                        <p class="tx-11 text-muted">publicado en {{publi.fecha}}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div class="dropdown">
-                    <button class="btn p-0" type="button" id="dropdownMenuButton3" data-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-more-horizontal icon-lg pb-3px">
-                        <circle cx="12" cy="12" r="1"></circle>
-                        <circle cx="19" cy="12" r="1"></circle>
-                        <circle cx="5" cy="12" r="1"></circle>
-                      </svg>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                      <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="dropdown">
+                      <button class="btn p-0" type="button" id="dropdownMenuButton3" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                          class="feather feather-meh icon-sm mr-2">
-                          <circle cx="12" cy="12" r="10"></circle>
-                          <line x1="8" y1="15" x2="16" y2="15"></line>
-                          <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                          <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                        </svg> <span class="">Unfollow</span></a>
-                      <a class="dropdown-item d-flex align-items-center" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                          class="feather feather-corner-right-up icon-sm mr-2">
-                          <polyline points="10 9 15 4 20 9"></polyline>
-                          <path d="M4 20h7a4 4 0 0 0 4-4V4"></path>
-                        </svg> <span class="">Go to post</span></a>
-                      <a class="dropdown-item d-flex align-items-center" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                          class="feather feather-share-2 icon-sm mr-2">
-                          <circle cx="18" cy="5" r="3"></circle>
-                          <circle cx="6" cy="12" r="3"></circle>
-                          <circle cx="18" cy="19" r="3"></circle>
-                          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                        </svg> <span class="">Share</span></a>
-                      <a class="dropdown-item d-flex align-items-center" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                          class="feather feather-copy icon-sm mr-2">
-                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                        </svg> <span class="">Copy link</span></a>
+                          class="feather feather-more-horizontal icon-lg pb-3px">
+                          <circle cx="12" cy="12" r="1"></circle>
+                          <circle cx="19" cy="12" r="1"></circle>
+                          <circle cx="5" cy="12" r="1"></circle>
+                        </svg>
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-meh icon-sm mr-2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="8" y1="15" x2="16" y2="15"></line>
+                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                          </svg> <span class="">Unfollow</span></a>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-corner-right-up icon-sm mr-2">
+                            <polyline points="10 9 15 4 20 9"></polyline>
+                            <path d="M4 20h7a4 4 0 0 0 4-4V4"></path>
+                          </svg> <span class="">Go to post</span></a>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-share-2 icon-sm mr-2">
+                            <circle cx="18" cy="5" r="3"></circle>
+                            <circle cx="6" cy="12" r="3"></circle>
+                            <circle cx="18" cy="19" r="3"></circle>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                          </svg> <span class="">Share</span></a>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-copy icon-sm mr-2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                          </svg> <span class="">Copy link</span></a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="card-body">
-                <p class="mb-3 tx-8">Catedrático: {{publi.catedratico}}</p>
-                <p class="mb-3 tx-8">Curso: {{publi.curso}}</p>
-                <p class="mb-3 tx-14">Mensaje: {{publi.mensaje}}</p>
-              </div>
-              <div class="card-footer">
-                <div class="d-flex post-actions">
-                  <a href="javascript:;" class="d-flex align-items-center text-muted mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="feather feather-message-square icon-md">
-                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                    <p class="d-none d-md-block ml-2">Comentarios</p>
-                  </a>
+                <div class="card-body">
+                  <p class="mb-3 tx-8">Catedrático: {{publi.catedratico}}</p>
+                  <p class="mb-3 tx-8">Curso: {{publi.curso}}</p>
+                  <p class="mb-3 tx-14">Mensaje: {{publi.mensaje}}</p>
+                </div>
+                <div class="card-footer">
+                  <div class="d-flex post-actions">
+                    <a href="javascript:;" class="d-flex align-items-center text-muted mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-message-square icon-md">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      <p class="d-none d-md-block ml-2">Comentarios</p>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <div *ngIf="publicacionMarcador == 2">
+          <div *ngFor="let publi of publicacionCurso" style="margin-bottom: 1rem;" class="row">
+            <div class="col-md-12">
+              <div class="card rounded">
+                <div class="card-header">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <img class="img-xs rounded-circle" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
+                        alt="">
+                      <div class="ml-2">
+                        <p>{{publi.autor_nombre}} {{publi.autor_apellido}}</p>
+                        <p class="tx-11 text-muted">publicado en {{publi.fecha}}</p>
+                      </div>
+                    </div>
+                    <div class="dropdown">
+                      <button class="btn p-0" type="button" id="dropdownMenuButton3" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-more-horizontal icon-lg pb-3px">
+                          <circle cx="12" cy="12" r="1"></circle>
+                          <circle cx="19" cy="12" r="1"></circle>
+                          <circle cx="5" cy="12" r="1"></circle>
+                        </svg>
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-meh icon-sm mr-2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="8" y1="15" x2="16" y2="15"></line>
+                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                          </svg> <span class="">Unfollow</span></a>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-corner-right-up icon-sm mr-2">
+                            <polyline points="10 9 15 4 20 9"></polyline>
+                            <path d="M4 20h7a4 4 0 0 0 4-4V4"></path>
+                          </svg> <span class="">Go to post</span></a>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-share-2 icon-sm mr-2">
+                            <circle cx="18" cy="5" r="3"></circle>
+                            <circle cx="6" cy="12" r="3"></circle>
+                            <circle cx="18" cy="19" r="3"></circle>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                          </svg> <span class="">Share</span></a>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-copy icon-sm mr-2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                          </svg> <span class="">Copy link</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p class="mb-3 tx-8">Catedrático: {{publi.catedratico}}</p>
+                  <p class="mb-3 tx-8">Curso: {{publi.curso}}</p>
+                  <p class="mb-3 tx-14">Mensaje: {{publi.mensaje}}</p>
+                </div>
+                <div class="card-footer">
+                  <div class="d-flex post-actions">
+                    <a href="javascript:;" class="d-flex align-items-center text-muted mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-message-square icon-md">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      <p class="d-none d-md-block ml-2">Comentarios</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="publicacionMarcador == 3">
+          <div *ngFor="let publi of publicacionCatedratico" style="margin-bottom: 1rem;" class="row">
+            <div class="col-md-12">
+              <div class="card rounded">
+                <div class="card-header">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <img class="img-xs rounded-circle" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
+                        alt="">
+                      <div class="ml-2">
+                        <p>{{publi.autor_nombre}} {{publi.autor_apellido}}</p>
+                        <p class="tx-11 text-muted">publicado en {{publi.fecha}}</p>
+                      </div>
+                    </div>
+                    <div class="dropdown">
+                      <button class="btn p-0" type="button" id="dropdownMenuButton3" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-more-horizontal icon-lg pb-3px">
+                          <circle cx="12" cy="12" r="1"></circle>
+                          <circle cx="19" cy="12" r="1"></circle>
+                          <circle cx="5" cy="12" r="1"></circle>
+                        </svg>
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-meh icon-sm mr-2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="8" y1="15" x2="16" y2="15"></line>
+                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                          </svg> <span class="">Unfollow</span></a>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-corner-right-up icon-sm mr-2">
+                            <polyline points="10 9 15 4 20 9"></polyline>
+                            <path d="M4 20h7a4 4 0 0 0 4-4V4"></path>
+                          </svg> <span class="">Go to post</span></a>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-share-2 icon-sm mr-2">
+                            <circle cx="18" cy="5" r="3"></circle>
+                            <circle cx="6" cy="12" r="3"></circle>
+                            <circle cx="18" cy="19" r="3"></circle>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                          </svg> <span class="">Share</span></a>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-copy icon-sm mr-2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                          </svg> <span class="">Copy link</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p class="mb-3 tx-8">Catedrático: {{publi.catedratico}}</p>
+                  <p class="mb-3 tx-8">Curso: {{publi.curso}}</p>
+                  <p class="mb-3 tx-14">Mensaje: {{publi.mensaje}}</p>
+                </div>
+                <div class="card-footer">
+                  <div class="d-flex post-actions">
+                    <a href="javascript:;" class="d-flex align-items-center text-muted mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-message-square icon-md">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      <p class="d-none d-md-block ml-2">Comentarios</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
       <!-- middle wrapper end -->
       <!-- right wrapper start -->
