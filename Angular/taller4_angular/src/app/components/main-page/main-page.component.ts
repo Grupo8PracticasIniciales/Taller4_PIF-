@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Comentario } from 'src/app/models/comentario.model';
 import { Publicacion } from 'src/app/models/publicacion.model';
+import { ComentarioService } from 'src/app/services/comentario.service';
 import { PublicacionService } from 'src/app/services/publicacion.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
@@ -8,7 +10,7 @@ import Swal from 'sweetalert2';
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css'],
-  providers: [UsuarioService, PublicacionService]
+  providers: [UsuarioService, PublicacionService, ComentarioService]
 })
 export class MainPageComponent implements OnInit{
 
@@ -19,10 +21,14 @@ export class MainPageComponent implements OnInit{
   public publicacionMarcador: number = 1
   public publicacionCurso: any
   public publicacionCatedratico: any
+  public comentarioPorPublicacion: any
+  public nuevoComentario: Comentario
+  id_publicacion_asignar: String = ''
 
-  constructor(private _usuarioService: UsuarioService, private _publicacionService: PublicacionService){
+  constructor(private _usuarioService: UsuarioService, private _publicacionService: PublicacionService, private _comentarioService: ComentarioService){
     this.publicacionNueva = new Publicacion("","","","","",[])
     this.datoBuscado = new Publicacion("","","","","",[])
+    this.nuevoComentario = new Comentario("","","","")
     this.publicacionMarcador = 1
   }
   ngOnInit(): void {
@@ -102,6 +108,37 @@ export class MainPageComponent implements OnInit{
         )
         this.publicacionNueva = new Publicacion("","","","","",[])
         this.obtenerPublicaciones()
+      },
+      error=>{
+        console.log(<any>error)
+      }
+    )
+  }
+
+  cargarComentarios(id_comentario: String){
+    this._comentarioService.obtenerComentarios(id_comentario).subscribe(
+      response=>{
+        this.comentarioPorPublicacion = response
+        this.id_publicacion_asignar = id_comentario
+      },
+      error =>{
+        console.log(<any>error)
+      }
+    )
+  }
+
+  crearComentario(){
+    this.nuevoComentario.nombre_usuario = this._usuarioService.getIdentidad().nombre
+    this.nuevoComentario.apellido_usuario = this._usuarioService.getIdentidad().apellido
+    this.nuevoComentario.id_publicacion = this.id_publicacion_asignar
+    this._comentarioService.crearComentario(this.nuevoComentario).subscribe(
+      response=>{
+        Swal.fire(
+          'Comentario Creado con éxito!',
+          'success'
+        )
+        this.cargarComentarios(this.id_publicacion_asignar)
+        this.nuevoComentario = new Comentario("","","","")
       },
       error=>{
         console.log(<any>error)
