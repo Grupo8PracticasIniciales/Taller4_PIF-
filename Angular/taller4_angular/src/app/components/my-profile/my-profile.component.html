@@ -3,112 +3,145 @@
 
 <!--De aquí para abajo puedes borrar, porfa-->
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
-<div id="user-profile-2" class="user-profile">
-    <div class="tabbable">
-      <ul class="nav nav-tabs padding-18">
-
-
-
-      </ul>
-
-      <div class="tab-content no-border padding-24">
-        <div id="home" class="tab-pane in active">
-          <div class="row">
-            <div class="col-xs-12 col-sm-3 center">
-              <span class="profile-picture">
-              <img class="editable img-responsive" alt=" Avatar" id="avatar2" src="C:\git\Taller4_PIF-\Angular\taller4_angular\src\app\components\my-profile\usuario.png">
-              </span>
-
-              <div class="space space-4"></div>
-
-              <a href="#" class="btn btn-sm btn-block btn-success">
-                <i class="ace-icon fa fa-plus-circle bigger-120"></i>
-                <span class="bigger-110">Agregar cursos</span>
-              </a>
-
-              <a href="#" class="btn btn-sm btn-block btn-primary">
-                <i class="ace-icon fa fa-envelope-o bigger-110"></i>
-                <span class="bigger-110">Editar perfil</span>
-              </a>
-            </div><!-- /.col -->
-
-            <div class="col-xs-12 col-sm-9">
-              <h4 class="blue">
-                <span class="middle">Perfil del usuario</span>
-              </h4>
-
-              <div class="profile-user-info">
-                <div class="profile-info-row">
-                  <div class="profile-info-name"> Nombre </div>
-
-                  <div class="profile-info-value">
-                    <span>alexdoe</span>
-                  </div>
-                </div>
-
-                <div class="profile-info-row">
-                  <div class="profile-info-name"> Apellido </div>
-
-                  <div class="profile-info-value">
-                    <i class="fa fa-map-marker light-orange bigger-110"></i>
-                    <span>Netherlands</span>
-                    <span>Amsterdam</span>
-                  </div>
-                </div>
-
-                <div class="profile-info-row">
-                  <div class="profile-info-name"> Registro académico </div>
-
-                  <div class="profile-info-value">
-                    <span>38</span>
-                  </div>
-                </div>
-
-
-
-              <div class="hr hr-8 dotted"></div>
-
-              <div class="profile-user-info">
-                <div class="profile-info-row">
-                  <div class="profile-info-name"> Correo </div>
-
-                  <div class="profile-info-value">
-                    <a href="#" target="_blank">www.alexdoe.com</a>
-                  </div>
-                </div>
-
-
-          <div class="space-20"></div>
-
-          <div class="row">
-            <div class="col-xs-12 col-sm-6">
-              <div class="widget-box transparent">
-                <div class="widget-header widget-header-small">
-                  <h4 class="widget-title smaller">
-                    <i class="ace-icon fa fa-check-square-o bigger-110"></i>
-                    Cursos aprobados
-                  </h4>
-                </div>
-
-                <div class="widget-body">
-                  <div class="widget-main">
-                    <p>
-                      My job is mostly lorem ipsuming and dolor sit ameting as long as consectetur adipiscing elit.
-                    </p>
-                    <p>
-                      Sometimes quisque commodo massa gets in the way and sed ipsum porttitor facilisis.
-                    </p>
-                    <p>
-                      The best thing about my job is that vestibulum id ligula porta felis euismod and nullam quis risus eget urna mollis ornare.
-                    </p>
-                    <p>
-                      Thanks for visiting my profile.
-                    </p>
+  <div class="main-body">
+        <div class="row gutters-sm">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="Admin" class="rounded-circle" width="150">
+                  <div class="mt-3">
+                    <h4>{{usuarioEncontrado.nombre}} {{usuarioEncontrado.apellido}}</h4>
+                    <p class="text-secondary mb-1">Alumno</p>
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" style="margin-right: 1rem;">Agregar Curso</button>
+                    <button data-bs-toggle="modal" data-bs-target="#modalPerfil" class="btn btn-primary">Editar perfil</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div><!-- /#home -->
+          <div class="col-md-8">
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Nombre</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{usuarioEncontrado.nombre}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Apellido</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{usuarioEncontrado.apellido}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Registro Académico</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{usuarioEncontrado.registro_academico}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Correo</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{usuarioEncontrado.correo}}
+                  </div>
+                </div>
+                <hr>
+              </div>
+            </div>
+
+            <div class="row gutters-sm">
+              <div class="col-sm-12 mb-3">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Cursos Aprobados</i></h6>
+                    <div *ngFor="let cursos of cursosEncontrados">
+                      <small>{{cursos.curso}} - Creditos: {{cursos.creditos}}</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Curso</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nombre del curso</label>
+              <input type="email" name="nombre" #nombre="ngModel" [(ngModel)]="cursoNuevo.curso" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre del curso">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Creditos</label>
+              <input type="text" name="creditos" #creditos="ngModel" [(ngModel)]="cursoNuevo.creditos" class="form-control" id="exampleInputPassword1" placeholder="Créditos">
+            </div>
+            <button (click)="crearCurso()" type="submit" class="btn btn-primary" style="margin-top: 1rem;">Agregar Curso</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar ventana</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalPerfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Curso</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nombre</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Apellido</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Apellido">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Registro Académico</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Registro académico" disabled>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Correo</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo">
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Agregar Curso</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar ventana</button>
+        </div>
+      </div>
+    </div>
+  </div>

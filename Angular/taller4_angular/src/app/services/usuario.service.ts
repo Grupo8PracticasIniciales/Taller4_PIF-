@@ -40,6 +40,10 @@ export class UsuarioService {
     return this._http.get(this.url+'/usuario/obtenerUsuarios',{headers: this.headersVariable})
   }
 
+  obtenerUsuarioId(id_usuario: String):Observable<any>{
+    return this._http.get(this.url+'/usuario/obtenerUsuarioId/'+id_usuario,{headers:this.headersVariable})
+  }
+
   getIdentidad(){
     var identidad2 = JSON.parse(localStorage.getItem('identidad') || '{}');
     if(identidad2 != 'undefined'){

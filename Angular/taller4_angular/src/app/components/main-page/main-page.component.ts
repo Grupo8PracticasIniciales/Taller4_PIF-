@@ -141,7 +141,7 @@ export class MainPageComponent implements OnInit{
         this.nuevoComentario = new Comentario("","","","")
       },
       error=>{
-        console.log(<any>error)
+        console.log(<any>error);
       }
     )
   }

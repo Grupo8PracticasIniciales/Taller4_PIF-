@@ -17,7 +17,7 @@ export class CursoService {
   }
 
   obtenerCursos(id: String):Observable<any>{
-    return this._http.get(this.url+'/comentario/obtenerCursoUsuario/'+id,{headers: this.headersVariable})
+    return this._http.get(this.url+'/curso/obtenerCursoUsuario/'+id,{headers: this.headersVariable})
   }
 
   agregarCurso(curso: Curso): Observable<any>{

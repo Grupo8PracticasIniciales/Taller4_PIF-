@@ -2,13 +2,14 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand">USAC</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a (click)="cambiarpublicacionMarcador(1)" class="nav-link" >Principal</a>
+            <a (click)="cambiarpublicacionMarcador(1)" class="nav-link">Principal</a>
           </li>
           <li class="nav-item">
             <a [routerLink]="['/myProfile']" class="nav-link">Mi perfil</a>
@@ -18,9 +19,12 @@
           </li>
         </ul>
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" name="dato" #dato="ngModel" [(ngModel)]="datoBuscado.catedratico" placeholder="Search" aria-label="Search">
-          <button (click)="cambiarpublicacionMarcador(2)" class="btn btn-outline-primary" type="submit">Buscar curso</button>
-          <button (click)="cambiarpublicacionMarcador(3)" class="btn btn-outline-primary" style="margin-right: 2px; margin-left: 5px;" type="submit">Buscar catedrático</button>
+          <input class="form-control me-2" type="search" name="dato" #dato="ngModel"
+            [(ngModel)]="datoBuscado.catedratico" placeholder="Search" aria-label="Search">
+          <button (click)="cambiarpublicacionMarcador(2)" class="btn btn-outline-primary" type="submit">Buscar
+            curso</button>
+          <button (click)="cambiarpublicacionMarcador(3)" class="btn btn-outline-primary"
+            style="margin-right: 2px; margin-left: 5px;" type="submit">Buscar catedrático</button>
         </form>
       </div>
     </div>
@@ -130,7 +134,8 @@
                         class="feather feather-message-square icon-md">
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                       </svg>
-                      <p (click)="cargarComentarios(publi._id)" class="d-none d-md-block ml-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Comentarios</p>
+                      <p (click)="cargarComentarios(publi._id)" class="d-none d-md-block ml-2" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Comentarios</p>
                     </a>
                   </div>
                 </div>
@@ -215,7 +220,8 @@
                         class="feather feather-message-square icon-md">
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                       </svg>
-                      <p (click)="cargarComentarios(publi._id)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="d-none d-md-block ml-2">Comentarios</p>
+                      <p (click)="cargarComentarios(publi._id)" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        class="d-none d-md-block ml-2">Comentarios</p>
                     </a>
                   </div>
                 </div>
@@ -300,7 +306,8 @@
                         class="feather feather-message-square icon-md">
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                       </svg>
-                      <p (click)="cargarComentarios(publi._id)"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="d-none d-md-block ml-2">Comentarios</p>
+                      <p (click)="cargarComentarios(publi._id)" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        class="d-none d-md-block ml-2">Comentarios</p>
                     </a>
                   </div>
                 </div>
@@ -333,13 +340,28 @@
                     </div>
                   </div>
                   <button class="btn btn-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="feather feather-user-plus" data-toggle="tooltip" title="" data-original-title="Connect">
-                      <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                      <circle cx="8.5" cy="7" r="4"></circle>
-                      <line x1="20" y1="8" x2="20" y2="14"></line>
-                      <line x1="23" y1="11" x2="17" y2="11"></line>
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="25pt" height="25pt"
+                      viewBox="0 0 1280.000000 662.000000" preserveAspectRatio="xMidYMid meet">
+                      <metadata>
+                        Created by potrace 1.15, written by Peter Selinger 2001-2017
+                      </metadata>
+                      <g transform="translate(0.000000,662.000000) scale(0.100000,-0.100000)" fill="#000000"
+                        stroke="none">
+                        <path d="M6330 6609 c-1718 -102 -3518 -884 -5200 -2260 -336 -274 -685 -593
+-956 -873 l-173 -178 91 -99 c144 -156 523 -517 803 -764 1394 -1232 2845
+-2012 4275 -2299 486 -97 816 -130 1320 -130 383 -1 517 7 845 49 1372 176
+2726 781 3982 1781 517 411 1037 915 1406 1362 l78 93 -27 32 c-463 555 -984
+1081 -1491 1504 -1537 1283 -3211 1885 -4953 1782z m464 -584 c362 -42 679
+-139 1002 -304 957 -491 1538 -1464 1501 -2511 -22 -585 -223 -1125 -593
+-1590 -87 -109 -314 -336 -424 -424 -403 -322 -876 -525 -1410 -607 -214 -33
+-590 -33 -810 0 -560 83 -1055 305 -1470 656 -119 101 -310 302 -403 423 -298
+389 -481 840 -542 1332 -30 243 -15 583 35 831 237 1162 1221 2047 2440 2193
+160 19 514 20 674 1z" />
+                        <path d="M6325 4819 c-557 -58 -1040 -395 -1274 -889 -180 -380 -196 -802 -47
+-1188 166 -430 522 -771 959 -917 203 -68 276 -79 527 -79 212 0 232 1 345 28
+147 34 230 64 360 126 437 210 750 611 852 1090 28 130 25 469 -4 600 -58 259
+-165 475 -334 677 -331 394 -863 606 -1384 552z" />
+                      </g>
                     </svg>
                   </button>
                 </div>
@@ -367,18 +389,20 @@
 
             <div class="d-flex justify-content-between">
               <div class="d-flex flex-row align-items-center">
-                <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" width="25"
-                  height="25" />
-                <p class="small mb-0 ms-2">{{coment.nombre_usuario}}  {{coment.apellido_usuario}}</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" width="25" height="25" />
+                <p class="small mb-0 ms-2">{{coment.nombre_usuario}} {{coment.apellido_usuario}}</p>
               </div>
             </div>
           </div>
         </div>
         <form>
           <div class="form-group">
-            <input type="email" name="comentario" #comentario="ngModel" [(ngModel)]="nuevoComentario.comentario" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribir comentario">
+            <input type="email" name="comentario" #comentario="ngModel" [(ngModel)]="nuevoComentario.comentario"
+              class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="Escribir comentario">
           </div>
-          <button (click)="crearComentario()" type="submit" class="btn btn-primary" style="margin-top: 1rem;">Agregar Comentario</button>
+          <button (click)="crearComentario()" type="submit" class="btn btn-primary" style="margin-top: 1rem;">Agregar
+            Comentario</button>
         </form>
       </div>
       <div class="modal-footer">
