@@ -12,6 +12,7 @@ export class UsuarioService {
   public url: String;
   public headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
   public identidad: any;
+  public static idUsuarioSeleccionado : String = '';
 
   constructor(public _http: HttpClient) {
     this.url = GLOBAL.url;
@@ -54,4 +55,13 @@ export class UsuarioService {
 
     return this.identidad;
   }
+
+  setUsuarioSeleccionado(id: String){
+    UsuarioService.idUsuarioSeleccionado = id
+  }
+
+  getUsuarioSeleccionado(){
+    return UsuarioService.idUsuarioSeleccionado
+  }
+
 }

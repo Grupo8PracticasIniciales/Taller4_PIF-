@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Comentario } from 'src/app/models/comentario.model';
 import { Publicacion } from 'src/app/models/publicacion.model';
 import { ComentarioService } from 'src/app/services/comentario.service';
@@ -25,7 +26,7 @@ export class MainPageComponent implements OnInit{
   public nuevoComentario: Comentario
   id_publicacion_asignar: String = ''
 
-  constructor(private _usuarioService: UsuarioService, private _publicacionService: PublicacionService, private _comentarioService: ComentarioService){
+  constructor(private _usuarioService: UsuarioService, private _publicacionService: PublicacionService, private _comentarioService: ComentarioService, private _router: Router){
     this.publicacionNueva = new Publicacion("","","","","",[])
     this.datoBuscado = new Publicacion("","","","","",[])
     this.nuevoComentario = new Comentario("","","","")
@@ -144,6 +145,11 @@ export class MainPageComponent implements OnInit{
         console.log(<any>error);
       }
     )
+  }
+
+  setIdUsuario(id: String){
+    this._usuarioService.setUsuarioSeleccionado(id)
+    this._router.navigate(['/profile'])
   }
 
 }

@@ -1,0 +1,101 @@
+<!--Solo agregué el navbar, no borres esto porfa-->
+<app-navbar></app-navbar>
+
+<!--De aquí para abajo puedes borrar, porfa-->
+
+<div class="container">
+  <div class="main-body">
+        <div class="row gutters-sm">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="Admin" class="rounded-circle" width="150">
+                  <div class="mt-3">
+                    <h4>{{usuarioEncontrado.nombre}} {{usuarioEncontrado.apellido}}</h4>
+                    <p class="text-secondary mb-1">Alumno</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Nombre</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{usuarioEncontrado.nombre}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Apellido</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{usuarioEncontrado.apellido}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Registro Académico</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{usuarioEncontrado.registro_academico}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Correo</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{usuarioEncontrado.correo}}
+                  </div>
+                </div>
+                <hr>
+              </div>
+            </div>
+
+            <div class="row gutters-sm">
+              <div class="col-sm-12 mb-3">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Cursos Aprobados</i></h6>
+                    <div *ngFor="let curso of cursosEncontrados">
+                      <small>{{curso.curso}} - Créditos: {{curso.creditos}}</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <button (click)="calcularCreditos()" data-bs-toggle="modal" data-bs-target="#modal3" class="btn btn-primary">Calcular créditos</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </div>
+
+  <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Total de créditos</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h1>Este alumnno tiene {{creditosTotales}} créditos</h1>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
