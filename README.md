@@ -18,6 +18,6 @@
 # ____________________________________________________________
 ## MANUALES 
 ### En este documento, encontrarás el manual técnico el cual describe las funciones del servidor.
-- :file_folder:[Manual](Manual_Técnico_-_Taller_4.pdf)
+- :file_folder:[Manual](Manual_Técnico_Taller_4.pdf)
 ### En este documento, encontrarás el manual de usuario el cual describe el funcionamiento de la aplicación.
 - :file_folder:[Manual](Manual_Informe3_Grupo8.pdf) 
