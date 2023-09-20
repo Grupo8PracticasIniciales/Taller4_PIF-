@@ -21,7 +21,3 @@
 - :file_folder:[Manual](Manual_Técnico_-_Taller_4.pdf)
 ### En este documento, encontrarás el manual de usuario el cual describe el funcionamiento de la aplicación.
 - :file_folder:[Manual](Manual_Informe3_Grupo8.pdf) 
-_______________________________________________________________
-## Pagina Web 
-### En el siguiente enlace se encuentra nuestro sitio web, donde tendrán acceso a un área de descargas exclusiva donde podrán obtener el manual completo y el video sobre Docker.
-- :file_folder:[Página Web](https://3942784100101.wixsite.com/taller-2)
